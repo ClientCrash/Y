@@ -1,0 +1,2 @@
+def runDotY(stream):
+    pass

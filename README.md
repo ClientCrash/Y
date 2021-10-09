@@ -21,11 +21,11 @@ update: "b.y" #Runs on file updates
 version: "1.0.0" #Version of this file (use for your own purposes)
 ```
 
-### Example *.y file
+### Example \*.y file
 
 ```y
-("*.js","node $file")   # Execute Command on any file matching the selector. Runs from the location of the YFILE
-(none,"") # Execute Command
+("*.js","node $file")   # Execute Command on any file matching the selector. Runs from the location of the YFILE #
+(none,"") # Execute Command #
 ```
 
 ### VARIABLES
@@ -35,13 +35,18 @@ version: "1.0.0" #Version of this file (use for your own purposes)
 `$timestamp` current timestamo  
 `$os` either `win` or `other`
 
-### OS SPECIFIC code
+### OS specific code
 
 ```y
-["win",
+[win,
 ("*.bat","start $file")
 ]
-["other",
+
+[other,
 ("*.sh","chmod +x $file && bash $file")
+]
+
+[any,
+(*.js,"node $file")
 ]
 ```

@@ -3,7 +3,7 @@ import yaml
 Y_VERSION = "0.1.0"
 
 
-def parseYFile():
+def parseYConfig():
     o = {"y": "1.0.0"}
     with open("YFILE", "r") as stream:
         try:
@@ -16,7 +16,7 @@ def parseYFile():
 
 def main():
     print("Y - " + Y_VERSION)
-    config = parseYFile()
+    config = parseYConfig()
     if(config["y"] != Y_VERSION):
         print("WARNING : THE Y VERSION IN THE YFILE DOES NOT MATCH THIS Y VERSION")
         print("THIS_Y_VERSION : " + Y_VERSION)
