@@ -1,7 +1,7 @@
 import os
 import yaml
 import re
-
+import sys
 
 def runDotY(filename):
     filec = ""  # File content
@@ -12,7 +12,7 @@ def runDotY(filename):
         except:
             FileNotFoundError
         print("CANT READ " + filename)
-        os.exit()
+        sys.exit()
     file_data_categorys = re.split("\[|\]", filec)
     for category in file_data_categorys:
         print(category)  # just for debug
@@ -25,4 +25,4 @@ def readYamlFromFile(filename):
         except yaml.YAMLError as exc:
             print("Cant read YFILE")
             print(exc)
-            os.exit()
+            sys.exit()
