@@ -1,0 +1,6 @@
+y: 0.1.0 #Version of Y
+name: "example"
+setup: "setup.y" #Runs on the project setup.
+start: "start.y" #Runs when you run y in the project folder.
+update: "b.y" #Runs on file updates
+version: "1.0.0" #Version of this file (use for your own purposes)
