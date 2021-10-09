@@ -1,14 +1,25 @@
 import os
 import yaml
+import re
 
 
-def runDotY(stream):
-    pass
+def runDotY(filename):
+    filec = ""  # File content
+    with open(filename, "r") as file:
+        try:
+            filec = file.read()
+            file.close()
+        except:
+            FileNotFoundError
+        print("CANT READ " + filename)
+        os.exit()
+    file_data_categorys = re.split("\[|\]", filec)
+    for category in file_data_categorys:
+        print(category)  # just for debug
 
 
-def parseYConfig():
-    o = {"y": "1.0.0"}
-    with open("YFILE", "r") as stream:
+def readYamlFromFile(filename):
+    with open(filename, "r") as stream:
         try:
             return yaml.safe_load(stream)
         except yaml.YAMLError as exc:
