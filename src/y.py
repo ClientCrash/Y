@@ -3,6 +3,7 @@ import yaml
 import re
 import sys
 
+
 def runDotY(filename):
     filec = ""  # File content
     with open(filename, "r") as file:
@@ -11,8 +12,8 @@ def runDotY(filename):
             file.close()
         except:
             FileNotFoundError
-        print("CANT READ " + filename)
-        sys.exit()
+            print("CANT READ " + filename)
+            sys.exit()
     file_data_categorys = re.split("\[|\]", filec)
     for category in file_data_categorys:
         print(category)  # just for debug
