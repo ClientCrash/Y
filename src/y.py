@@ -1,22 +1,34 @@
-import os
 import yaml
-import re
 import sys
+import category
+from utils import *
+from dataclasses import dataclass
 
 
 def runDotY(filename):
-    filec = ""  # File content
+    input_text = ""  # File content
     with open(filename, "r") as file:
         try:
-            filec = file.read()
+            input_text = file.read()
             file.close()
         except:
             FileNotFoundError
             print("CANT READ " + filename)
             sys.exit()
-    file_data_categorys = re.split("\[|\]", filec)
-    for category in file_data_categorys:
-        print(category)  # just for debug
+    category_strings = category.getCategoryStrings(input_text)
+    category_strings.pop(0)
+    category_strings.pop(len(category_strings)-1)
+    categorys = []
+    for c_string in category_strings:
+        print("putting string to parse : " + c_string)
+        categorys.append(category.parseCategoryStringToCategory(c_string))
+    for category_i in categorys:
+        if(category_i.os == getCurrentOS()):
+            runCategory(category_i)
+
+
+def runCategory(category):
+    pass
 
 
 def readYamlFromFile(filename):

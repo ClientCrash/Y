@@ -8,4 +8,5 @@
 
 [any,
 (*.js,"node $file")
+(*.js,"node $file")
 ]
